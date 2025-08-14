@@ -4,7 +4,7 @@
 
 <h1 style="text-align: center;">Seeing, Listening, Remembering, and Reasoning: A Multimodal Agent with Long-Term Memory</h1>
 
-[![arXiv](https://img.shields.io/badge/arXiv-2508.00000-b31b1b.svg)](https://arxiv.org/abs/2508.00000)
+[![arXiv](https://img.shields.io/badge/arXiv-2508.09736-b31b1b.svg)](https://arxiv.org/abs/2508.09736)
 [![Demo](https://img.shields.io/badge/homepage-M3--Agent-blue)](https://m3-agent.github.io)
 [![Model](https://img.shields.io/badge/model_HF-Memorization-green)](https://huggingface.co/ByteDance-Seed/M3-Agent-Memorization)
 [![Model](https://img.shields.io/badge/model_HF-Control-darkgreen)](https://huggingface.co/ByteDance-Seed/M3-Agent-Control)
@@ -19,8 +19,6 @@ We introduce M3-Agent, a novel multimodal agent framework equipped with long-ter
 ## A demo of M3-Agent as a personal assistant!
 
 [![Watch the video](figs/demo.png)](https://www.youtube.com/watch?v=XUx31cBanfo)
-
-To ensure the presentation quality, the video has been edited.
 
 ## M3-Bench
 
@@ -200,7 +198,7 @@ Please cite us as:
       title={Seeing, Listening, Remembering, and Reasoning: A Multimodal Agent with Long-Term Memory}, 
       author={Lin Long, Yichen He, Wentao Ye, Yiyuan Pan, Yuan Lin, Hang Li, Junbo Zhao, Wei Li},
       year={2025},
-      eprint={2508.00000},
+      eprint={2508.09736},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
