@@ -20,7 +20,7 @@ We introduce M3-Agent, a novel multimodal agent framework equipped with long-ter
 
 [![Watch the video](figs/demo.png)](https://www.youtube.com/watch?v=XUx31cBanfo)
 
-Also accessible at [bilibili](https://www.bilibili.com/video/BV1h9YpznEx9/)
+The video can also be accessed on [Bilibili](https://www.bilibili.com/video/BV1h9YpznEx9/)
 
 ## M3-Bench
 
