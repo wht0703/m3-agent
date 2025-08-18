@@ -20,6 +20,8 @@ We introduce M3-Agent, a novel multimodal agent framework equipped with long-ter
 
 [![Watch the video](figs/demo.png)](https://www.youtube.com/watch?v=XUx31cBanfo)
 
+Also accessible at [bilibili](https://www.bilibili.com/video/BV1h9YpznEx9/)
+
 ## M3-Bench
 
 We introduce M3-Bench, an long video question answerin dataset designed to evaluate the capability of multimodal agents to perform reasoning over long-term memory. Each instance in M3-Bench comprises a long video simulating the perceptual input of an agent, along with a series of open-ended question-answer pairs. The dataset is organized into two subsets:
