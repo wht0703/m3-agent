@@ -139,7 +139,7 @@ python m3_agent/memorization_intermediate_outputs.py \
    - Download M3-Agent-Memorization from [huggingface](https://huggingface.co/datasets/ByteDance-Seed/M3-Bench/tree/main/videos/robot)
 
 ```bash
-python mmagent/generate_memory_qwen.py \
+python m3_agent/memorization_memory_graphs.py \
    --data_file data/data.jsonl
 ```
 
