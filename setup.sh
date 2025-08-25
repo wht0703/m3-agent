@@ -1,5 +1,4 @@
 pip install -r requirements.txt
-pip install -e .
 
 sudo pip install setuptools_scm torchdiffeq resampy x_transformers
 pip install accelerate==0.34.2 # https://github.com/huggingface/trl/issues/2377
