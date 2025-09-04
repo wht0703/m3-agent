@@ -96,6 +96,7 @@ def streaming_process_video(video_graph, sample):
             )
     
     video_graph.refresh_equivalences()
+    os.makedirs(os.path.dirname(sample["mem_path"]), exist_ok=True)
     with open(sample["mem_path"], "wb") as f:
         pickle.dump(video_graph, f)
 
