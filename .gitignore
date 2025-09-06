@@ -11,3 +11,4 @@ out*
 *.log
 data.jsonl
 results
+tmp
