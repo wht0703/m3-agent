@@ -22,7 +22,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--mem_path", type=str, default="data/memory_graphs/robot/bedroom_01.pkl")
     parser.add_argument("--video_length", type=int, default=0)
-    parser.add_argument("--original", type=bool, default=False)
+    parser.add_argument("--original", action="store_true")
     args = parser.parse_args()
 
     with tqdm(range(args.video_length), desc="Processing clips") as pbar:
