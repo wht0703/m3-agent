@@ -32,9 +32,7 @@ processing_config = json.load(open("configs/processing_config.json"))
 model_name = "models/M3-Agent-Control"
 config = json.load(open("configs/api_config.json"))
 gpt_model = "gpt-4o-2024-11-20"
-client = openai.AzureOpenAI(
-    azure_endpoint=config[gpt_model]["azure_endpoint"],
-    api_version=config[gpt_model]["api_version"],
+client = openai.OpenAI(
     api_key=config[gpt_model]["api_key"],
 )
 
@@ -135,13 +133,23 @@ def consumer(data):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_file", type=str, default="data/annotations/robot.json")
+    parser.add_argument("--apply_filter", action="store_true", default=True)
+    parser.add_argument("--data_entry", type=str, default="bedroom_01")
     args = parser.parse_args()
     dataset_name = args.data_file.split("/")[-1].split(".")[0]
     output_path = os.path.join("data/results", f"{dataset_name}.jsonl")
-    model = LLM(model=model_name, tensor_parallel_size=2)
+    os.makedirs("data/results", exist_ok=True)
+    # In case of debugging, please set enforce_eager to True and set VLLM_ENABLE_V1_MULTIPROCESSING==0
+    model = LLM(model=model_name, tensor_parallel_size=4)
 
     batched_datas, data = [], []
     datas = json.load(open(args.data_file))
+    if args.apply_filter:
+        if args.data_entry in datas:
+            datas = {args.data_entry: datas[args.data_entry]}
+        else:
+            raise ValueError(f"Data entry {args.data_entry} not found in {args.data_file}")
+        
     for _, v in datas.items():
         for qa in v["qa_list"]:
             data.append({
