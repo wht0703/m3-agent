@@ -132,11 +132,11 @@ def consumer(data):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_file", type=str, default="data_chrono/annotations/robot.json")
-    parser.add_argument("--apply_filter", action="store_true", default=True)
+    parser.add_argument("--data_file", type=str, default="data/annotations/robot.json")
+    parser.add_argument("--apply_filter", action="store_true")
     parser.add_argument("--data_entry", type=str, default="bedroom_01")
-    parser.add_argument("--debug", action="store_true", default=True)
-    parser.add_argument("--output_file", type=str, default="data_chrono/results/")
+    parser.add_argument("--debug", action="store_true")
+    parser.add_argument("--output_dir", type=str, default="data/results/")
     
     args = parser.parse_args()
     dataset_name = args.data_file.split("/")[-1].split(".")[0]
