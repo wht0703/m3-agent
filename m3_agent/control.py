@@ -140,13 +140,14 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     dataset_name = args.data_file.split("/")[-1].split(".")[0]
-    output_path = os.path.join(args.output_file, f"{dataset_name}.jsonl")
-    os.makedirs(args.output_file, exist_ok=True)
+    output_path = os.path.join(args.output_dir, f"{dataset_name}.jsonl")
+    os.makedirs(args.output_dir, exist_ok=True)
     # In case of debugging, please set enforce_eager to True and set VLLM_ENABLE_V1_MULTIPROCESSING==0
     if args.debug:
         os.environ["VLLM_ENABLE_V1_MULTIPROCESSING"] = "0"
         model = LLM(model=model_name, tensor_parallel_size=4, enforce_eager=True)
     else:
+        os.environ["TOKENIZERS_PARALLELISM"] = "0"
         model = LLM(model=model_name, tensor_parallel_size=4)
 
     batched_datas, data = [], []
@@ -199,7 +200,7 @@ if __name__ == "__main__":
             outputs = model.generate(
                 prompts=vllm_inputs,
                 sampling_params=sampling_params,
-                use_tqdm=False,
+                use_tqdm=True,
             )
 
             i = 0
