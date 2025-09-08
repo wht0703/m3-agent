@@ -68,6 +68,8 @@ def streaming_process_video(sample):
 
     # Process each interval
     clips = glob.glob(sample["clip_path"] + "/*")
+    if args.chronological:
+        clips = sorted(clips, key=lambda x: int(x.split("/")[-1].split(".")[0]))
     for clip_path in clips:
         clip_id = int(clip_path.split("/")[-1].split(".")[0])
         base64_video, base64_frames, base64_audio = process_video_clip(clip_path)
@@ -86,6 +88,7 @@ def streaming_process_video(sample):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_file", type=str, default="data/data.jsonl")
+    parser.add_argument("--chronological", action="store_true", default=False)
     args = parser.parse_args()
 
     with open(args.data_file, "r") as f:
