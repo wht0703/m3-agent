@@ -132,15 +132,22 @@ def consumer(data):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_file", type=str, default="data/annotations/robot.json")
+    parser.add_argument("--data_file", type=str, default="data_chrono/annotations/robot.json")
     parser.add_argument("--apply_filter", action="store_true", default=True)
     parser.add_argument("--data_entry", type=str, default="bedroom_01")
+    parser.add_argument("--debug", action="store_true", default=True)
+    parser.add_argument("--output_file", type=str, default="data_chrono/results/")
+    
     args = parser.parse_args()
     dataset_name = args.data_file.split("/")[-1].split(".")[0]
-    output_path = os.path.join("data/results", f"{dataset_name}.jsonl")
-    os.makedirs("data/results", exist_ok=True)
+    output_path = os.path.join(args.output_file, f"{dataset_name}.jsonl")
+    os.makedirs(args.output_file, exist_ok=True)
     # In case of debugging, please set enforce_eager to True and set VLLM_ENABLE_V1_MULTIPROCESSING==0
-    model = LLM(model=model_name, tensor_parallel_size=4)
+    if args.debug:
+        os.environ["VLLM_ENABLE_V1_MULTIPROCESSING"] = "0"
+        model = LLM(model=model_name, tensor_parallel_size=4, enforce_eager=True)
+    else:
+        model = LLM(model=model_name, tensor_parallel_size=4)
 
     batched_datas, data = [], []
     datas = json.load(open(args.data_file))

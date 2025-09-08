@@ -3,9 +3,9 @@ pip install -r requirements.txt
 pip install setuptools_scm torchdiffeq resampy x_transformers
 pip install accelerate==0.34.2 # https://github.com/huggingface/trl/issues/2377
 pip install ninja
-# sudo apt-get -y install ninja-build
+conda install ninja
 
-# pip install flash-attn==2.6.3 --no-build-isolation
+pip install flash-attn==2.7.4.post1 --no-build-isolation
 pip install torch==2.6.0
 pip install torchvision==0.21.0
 pip install torchaudio==2.6.0
@@ -16,7 +16,7 @@ pip install httpx==0.23.0
 pip install pydub==0.25.1
 
 pip install trl==0.16.0 # other versions may have problems
-# sudo apt-get -y install ffmpeg # load audio in video(mp4)
+conda install ffmpeg # load audio in video(mp4)
 
 pip install glob
 pip install onnxruntime==1.22.1
