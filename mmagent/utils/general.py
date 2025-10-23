@@ -230,6 +230,9 @@ def refine_json_str(invalid_json):
     # # Fix keys without double quotes
     # fixed_json = re.sub(r'(?<=\{|,)\s*([a-zA-Z0-9_]+)\s*:', r'"\1":', fixed_json)
     
+    # Remove trailing commas before closing braces and brackets
+    fixed_json = re.sub(r',(\s*[}\]])', r'\1', fixed_json)
+    
     # # Auto-complete missing braces and brackets
     # stack = []
     # for char in fixed_json:
