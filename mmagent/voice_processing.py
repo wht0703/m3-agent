@@ -145,7 +145,7 @@ def process_voices(video_graph, base64_audio, base64_video, save_path, preproces
             },
         ]
         messages = generate_messages(input)
-        model = "gemini-1.5-pro-002"
+        model = "gemini-2.0-flash"
         asrs = None
         for i in range(MAX_RETRIES):
             # response, _ = get_response_with_retry(model, messages, timeout=30)

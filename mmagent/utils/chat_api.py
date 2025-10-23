@@ -36,7 +36,7 @@ try:
     config = json.load(open("configs/api_config.json"))
     client = {}
     for model_name in config.keys():
-        if model_name == "gemini-1.5-pro-002":
+        if model_name in ["gemini-2.0-flash", "gemini-2.5-pro"]:
             client[model_name] = openai.OpenAI(
                 base_url=config[model_name]["base_url"],    
                 api_key=config[model_name]["api_key"],
